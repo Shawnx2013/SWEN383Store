@@ -1,12 +1,12 @@
 package Payment;
 
-public class CC extends PaymentInfor {
-    private int securityCode;
+public class DC extends PaymentInfor {
 
-    public int getSecurityCode() {
-        return securityCode;
+    private String bank;
+
+    public String getBank() {
+        return bank;
     }
-
     public String getCardNumber() {
         return cardNumber;
     }
@@ -14,5 +14,4 @@ public class CC extends PaymentInfor {
     public String getCardHolder() {
         return cardHolder;
     }
-
 }
