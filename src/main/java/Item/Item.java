@@ -1,6 +1,6 @@
 package Item;
 
-public class Item{
+public class Item {
 
     protected int availableAmt;
     protected int itemID;
