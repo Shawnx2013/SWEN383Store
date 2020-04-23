@@ -1,4 +1,4 @@
-package Database;
+package Core;
 import java.sql.*;
 public class Database {
     private Connection conn;

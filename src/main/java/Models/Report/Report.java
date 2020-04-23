@@ -1,4 +1,8 @@
-package Report;
+package Models.Report;
+
+import Models.Fine;
+import Models.Payment;
+import Models.Rental;
 
 public class Report {
     protected String reportName;
