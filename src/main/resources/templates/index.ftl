@@ -28,7 +28,9 @@
             </ul>
         </div>
     </nav>
-        <h1>SWEN383Store</h1>
+        <h1 style="text-align: center">SWEN383Store</h1>
         <form></form>
+
+<a href="http://localhost:4567/test">sadd</a>
     </body>
 </html>
