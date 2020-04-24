@@ -36,6 +36,19 @@ public class Main{
             return writer;
         });
 
+        get("/Payment", (request, response) -> {
+            StringWriter writer = new StringWriter();
+            try {
+                Template t2 = configuration.getTemplate("templates/Payment.html");
+                t2.process(null, writer);
+            }
+            catch (Exception e) {
+
+                Spark.halt(500);
+            }
+            return writer;
+        });
+
 
     }
 }
