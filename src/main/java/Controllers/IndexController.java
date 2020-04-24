@@ -6,24 +6,23 @@ import spark.*;
 import java.util.HashMap;
 import java.util.Map;
 
+import Routes.*;
 
-public class IndexController implements Route{
-    private static final String VIEW_NAME= "index.ftl";
-    private TemplateEngine freeMarker;
+import static spark.Spark.*;
+
+public class IndexController{
     public IndexController(TemplateEngine freeMarker){
         this.freeMarker = freeMarker;
     }
 
-    @Override
-    public Object handle(Request request, Response response){
-        Map<String, Object> map = new HashMap<>();
-        map.put("title", "Welcome to SWEN383Store");
+    public static final String HOME = "/";
+    //public static final String REGISTER = "";
 
-        return freeMarker.render(new ModelAndView(map, VIEW_NAME));
-    }
+    private final TemplateEngine freeMarker;
 
-    public static void main(String[] args) {
-
+    public void start(){
+        get(HOME, new IndexRoute(freeMarker));
+        post(HOME, new RegisterRoute(freeMarker));
     }
 
 }
