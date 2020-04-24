@@ -17,41 +17,7 @@ public class Main{
         final Main main = new Main(server);
 
         main.init();
-        //Spark.port(4000);
-        /*FreeMarkerEngine freemarker = new FreeMarkerEngine();
-        //System.out.println("Server running on: " + )
-        get("/", (request, response) -> {
-            Map<String, Object> model = new HashMap<>();
-            return new FreeMarkerEngine().render(
-                    new ModelAndView(model, "/index.ftl")
-            );
-        });*/
 
-        /*get("/test", (request, response) -> {
-            StringWriter writer = new StringWriter();
-            try {
-                Template t2 = configuration.getTemplate("templates/test.ftl");
-                t2.process(null, writer);
-            }
-            catch (Exception e) {
-
-                Spark.halt(500);
-            }
-            return writer;
-        });
-
-        get("/Payment", (request, response) -> {
-            StringWriter writer = new StringWriter();
-            try {
-                Template t2 = configuration.getTemplate("templates/Payment.ftl");
-                t2.process(null, writer);
-            }
-            catch (Exception e) {
-
-                Spark.halt(500);
-            }
-            return writer;
-        });*/
 
     }//main
 

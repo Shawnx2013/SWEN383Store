@@ -32,7 +32,7 @@
                     <input type="checkbox" class="form-check-input" id="exampleCheck1">
                     <label class="form-check-label" for="exampleCheck1">Remember me</label>
                 </div>
-                <button type="submit" class="btn btn-primary"><a href="http://localhost:4567/test">Sign In</a></button>
+                <button type="submit" class="btn btn-primary"><a>Sign In</a></button>
 
                 <!-- Button trigger modal -->
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop" id="register">Register</button>

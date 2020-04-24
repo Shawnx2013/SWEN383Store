@@ -1,22 +1,28 @@
 package Controllers;
 
+import Routes.IndexRoute;
+import Routes.PaymentRoute;
+import Routes.RegisterRoute;
 import spark.*;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class PaymentController implements Route{
-    private static final String VIEW_NAME= "Payment.ftl";
-    private TemplateEngine freeMarker;
+import static spark.Spark.get;
+import static spark.Spark.post;
+
+public class PaymentController{
     public PaymentController(TemplateEngine freeMarker){
         this.freeMarker = freeMarker;
     }
 
-    @Override
-    public Object handle(Request request, Response response){
-        Map<String, Object> map = new HashMap<>();
-        map.put("title", "Payment");
+    public static final String PAYMENT = "/payment";
+    //public static final String REGISTER = "";
 
-        return freeMarker.render(new ModelAndView(map, VIEW_NAME));
+    private final TemplateEngine freeMarker;
+
+    public void start(){
+        get(PAYMENT, new PaymentRoute(freeMarker));
+        //post(INDEX, new RegisterRoute(freeMarker));
     }
 }

@@ -15,14 +15,14 @@ public class IndexController{
         this.freeMarker = freeMarker;
     }
 
-    public static final String HOME = "/";
+    public static final String INDEX = "/";
     //public static final String REGISTER = "";
 
     private final TemplateEngine freeMarker;
 
     public void start(){
-        get(HOME, new IndexRoute(freeMarker));
-        post(HOME, new RegisterRoute(freeMarker));
+        get(INDEX, new IndexRoute(freeMarker));
+        post(INDEX, new RegisterRoute(freeMarker));
     }
 
 }

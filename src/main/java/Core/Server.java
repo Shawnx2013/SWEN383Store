@@ -1,6 +1,5 @@
 package Core;
 
-import Routes.RegisterRoute;
 import spark.TemplateEngine;
 
 import Controllers.*;
@@ -23,10 +22,11 @@ public class Server {
         IndexController indexControl = new IndexController(freeMarker);
         indexControl.start();
 
-        //get(HOME, new IndexController(freeMarker));
-        //get(PAYMENT, new PaymentController(freeMarker));
+        HomeController homeControl = new HomeController(freeMarker);
+        homeControl.start();
 
-        //test
-        get("/test", new TestController(freeMarker));
+        PaymentController paymentControl = new PaymentController(freeMarker);
+        paymentControl.start();
+
     }
 }
