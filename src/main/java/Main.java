@@ -1,32 +1,36 @@
-import spark.Spark;
-import freemarker.template.Configuration;
-import freemarker.template.Template;
+import spark.TemplateEngine;
+import spark.template.freemarker.FreeMarkerEngine;
 
-import java.io.StringWriter;
-
-import static spark.Spark.get;
+import Core.*;
 
 public class Main{
+    private final Server server;
+
+    public Main(Server server){
+        this.server = server;
+    }
+
     public static void main(String[] args){
+        final TemplateEngine freeMarkerEngine = new FreeMarkerEngine();
+        final Server server = new Server(freeMarkerEngine);
 
-        final Configuration configuration = new Configuration(Configuration.VERSION_2_3_22);
-        configuration.setClassForTemplateLoading(Main.class, "/");
+        final Main main = new Main(server);
+
+        main.init();
+        //Spark.port(4000);
+        /*FreeMarkerEngine freemarker = new FreeMarkerEngine();
+        //System.out.println("Server running on: " + )
         get("/", (request, response) -> {
-            StringWriter writer = new StringWriter();
-            try {
-                Template formTemplate = configuration.getTemplate("templates/index.ftl");
-                formTemplate.process(null, writer);
-            }
-            catch (Exception e) {
-                Spark.halt(500);
-            }
-            return writer;
-        });
+            Map<String, Object> model = new HashMap<>();
+            return new FreeMarkerEngine().render(
+                    new ModelAndView(model, "/index.ftl")
+            );
+        });*/
 
-        get("/test", (request, response) -> {
+        /*get("/test", (request, response) -> {
             StringWriter writer = new StringWriter();
             try {
-                Template t2 = configuration.getTemplate("templates/test.html");
+                Template t2 = configuration.getTemplate("templates/test.ftl");
                 t2.process(null, writer);
             }
             catch (Exception e) {
@@ -39,7 +43,7 @@ public class Main{
         get("/Payment", (request, response) -> {
             StringWriter writer = new StringWriter();
             try {
-                Template t2 = configuration.getTemplate("templates/Payment.html");
+                Template t2 = configuration.getTemplate("templates/Payment.ftl");
                 t2.process(null, writer);
             }
             catch (Exception e) {
@@ -47,8 +51,11 @@ public class Main{
                 Spark.halt(500);
             }
             return writer;
-        });
+        });*/
 
+    }//main
 
+    private void init(){
+        this.server.start();
     }
 }

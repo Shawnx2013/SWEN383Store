@@ -27,7 +27,8 @@
     <orderEntry type="library" name="Maven: org.eclipse.jetty.websocket:websocket-client:9.3.6.v20151106" level="project" />
     <orderEntry type="library" name="Maven: org.eclipse.jetty.websocket:websocket-servlet:9.3.6.v20151106" level="project" />
     <orderEntry type="library" name="Maven: org.eclipse.jetty.websocket:websocket-api:9.3.6.v20151106" level="project" />
-    <orderEntry type="library" name="Maven: org.freemarker:freemarker:2.3.22" level="project" />
+    <orderEntry type="library" name="Maven: com.sparkjava:spark-template-freemarker:2.7.1" level="project" />
+    <orderEntry type="library" name="Maven: org.freemarker:freemarker:2.3.26-incubating" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:2.0.0-alpha1" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-simple:2.0.0-alpha1" level="project" />
   </component>
