@@ -1,5 +1,6 @@
 package Routes;
 
+import Models.Account.*;
 import spark.*;
 import com.google.gson.*;
 import java.util.*;
@@ -15,8 +16,12 @@ public class RegisterRoute implements Route {
     public Object handle(Request request, Response response){
         System.out.println("Request received at RegisterRoute");
         System.out.println(request.body());
-        //Customer cust = new Gson()
-        System.out.println(request.queryParams("inputPhone"));
+
+        //Customer cust = new Gson().fromJson(request.body(), Customer.class);
+        //Customer cust;
+
+        //System.out.println(cust.getName());
+
         Map<String, Object> map = new HashMap<>();
         map.put("title", "Welcome to SWEN383Store");
 

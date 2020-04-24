@@ -18,6 +18,6 @@ public class IndexRoute implements Route {
         Map<String, Object> map = new HashMap<>();
         map.put("title", "Welcome to SWEN383Store");
 
-        return freeMarker.render(new ModelAndView(map, VIEW_NAME));
+        return freeMarker.render(new ModelAndView(map, VIEW_NAME)); //render(new ModelandView(
     }
 }

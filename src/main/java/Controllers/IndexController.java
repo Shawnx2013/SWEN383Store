@@ -22,6 +22,8 @@ public class IndexController{
 
     public void start(){
         get(INDEX, new IndexRoute(freeMarker));
+        //get("/", (request, response) -> {
+        // return "html here"});
         post(INDEX, new RegisterRoute(freeMarker));
     }
 

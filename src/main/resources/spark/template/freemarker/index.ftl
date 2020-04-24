@@ -54,50 +54,46 @@
                             <div class="form-row">
                                <div class="form-group col-md-6">
                                    <label for="validationDefault02">Full Name</label>
-                                   <input type="text" class="form-control" id="validationDefault02" placeholder="Full Name" >
+                                   <input type="text" class="form-control" name="name" placeholder="Full Name" >
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="inputEmail">Email</label>
-                                    <input type="email" class="form-control" name="inputEmail">
+                                    <input type="email" class="form-control" name="email">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="inputPassword">Password</label>
-                                    <input type="password" class="form-control" name="inputPassword">
+                                    <input type="password" class="form-control" name="password">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="inputAddress">Address</label>
-                                <input type="text" class="form-control" name="inputAddress" placeholder="1234 Main St">
-                            </div>
-                            <div class="form-group">
-                                <label for="inputAddress2">Address 2</label>
-                                <input type="text" class="form-control" name="inputAddress2" placeholder="Apartment, studio, or floor">
+                                <input type="text" class="form-control" name="address" placeholder="1234 Main St">
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label for="inputCity">City</label>
-                                    <input type="text" class="form-control" name="inputCity">
+                                    <label for="city">City</label>
+                                    <input type="text" class="form-control" name="city">
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="inputState">State</label>
-                                    <select name="inputState" class="form-control">
+                                    <select name="state" class="form-control">
                                         <option selected>Choose...</option>
                                         <option>NY</option>
                                     </select>
                                 </div>
                                 <div class="form-group col-md-2">
-                                    <label for="inputZip">Zip</label>
+                                    <label for="zip">Zip</label>
                                     <input type="text" class="form-control" name="inputZip">
                                 </div>
 
                             </div>
                             <div class="form-group">
                                 <label for="phone">Home Phone Number</label>
-                                <input type="text" class="form-control" name="inputHomePhone" placeholder="1234567890">
+                                <input type="text" class="form-control" name="home" placeholder="1234567890">
                             </div>
                             <div class="form-group">
                                 <label for="phone">Mobile Phone Number</label>
-                                <input type="text" class="form-control" name="inputMobilePhone" placeholder="1234567890">
+                                <input type="text" class="form-control" name="mobile" placeholder="1234567890">
                             </div>
                         </div>
                         <div class="modal-footer">
