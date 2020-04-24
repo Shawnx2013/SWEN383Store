@@ -9,9 +9,23 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <title>${title}</title>
         <link rel="stylesheet" href="/css/index.css">
-        <style>
 
-        </style>
+        <script>
+        function validateForm() {
+          var x = document.forms["registerForm"]["name"].value;
+          if (x == "") {
+            document.getElementById("name").style.border = "thin solid red";
+            return false;
+          }
+        }
+
+
+
+
+
+
+
+        </script>
     </head>
     <body>
         <h1>SWEN383Store</h1>
@@ -49,12 +63,12 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <form action="/" method="POST">
+                        <form action="/" method="POST" name="registerForm" onsubmit="return validateForm()">
                         <div class="modal-body">
                             <div class="form-row">
                                <div class="form-group col-md-6">
                                    <label for="validationDefault02">Full Name</label>
-                                   <input type="text" class="form-control" name="name" placeholder="Full Name" >
+                                   <input type="text" class="form-control" id="name" name="name" placeholder="Full Name" >
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="inputEmail">Email</label>
