@@ -18,6 +18,7 @@
 
         <div id="login">
             <form>
+
                 <div class="form-group">
                     <label for="exampleInputEmail1">Email address</label>
                     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
@@ -51,6 +52,10 @@
                         <form action="/" method="POST">
                         <div class="modal-body">
                             <div class="form-row">
+                               <div class="form-group col-md-6">
+                                   <label for="validationDefault02">Full Name</label>
+                                   <input type="text" class="form-control" id="validationDefault02" placeholder="Full Name" >
+                                </div>
                                 <div class="form-group col-md-6">
                                     <label for="inputEmail">Email</label>
                                     <input type="email" class="form-control" name="inputEmail">
@@ -87,8 +92,12 @@
 
                             </div>
                             <div class="form-group">
-                                <label for="phone">Phone Number</label>
-                                <input type="text" class="form-control" name="inputPhone" placeholder="1234567890">
+                                <label for="phone">Home Phone Number</label>
+                                <input type="text" class="form-control" name="inputHomePhone" placeholder="1234567890">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Mobile Phone Number</label>
+                                <input type="text" class="form-control" name="inputMobilePhone" placeholder="1234567890">
                             </div>
                         </div>
                         <div class="modal-footer">
