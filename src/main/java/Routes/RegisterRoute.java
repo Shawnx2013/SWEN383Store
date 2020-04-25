@@ -1,6 +1,7 @@
 package Routes;
 
 import Models.Account.*;
+import Service.*;
 import spark.*;
 import com.google.gson.*;
 import util.ParseRequestBody;
@@ -17,18 +18,19 @@ public class RegisterRoute implements Route {
     @Override
     public Object handle(Request request, Response response){
         System.out.println("Request received at RegisterRoute");
-        System.out.println(request.body());
-
-        try{
-            Registration regis = ParseRequestBody.convert(request.body(), Registration.class);
-            System.out.println(regis);
-
-        }catch(Exception e){
-            e.printStackTrace();
-        }
+        //System.out.println(request.body());
+        int res = -1;
+        Registration regis = ParseRequestBody.convert(request.body(), Registration.class);
+        System.out.println(regis);
+        AccountService service = new AccountService(regis);
+        res = service.addCustomer();
 
         Map<String, Object> map = new HashMap<>();
         map.put("title", "Welcome to SWEN383Store");
+        map.put("RegisRes", "FAILED");
+        if(res > 0){
+            map.put("RegisRes", "SUCCESS");
+        }
 
         return freeMarker.render(new ModelAndView(map, VIEW_NAME));
     }

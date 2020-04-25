@@ -58,7 +58,7 @@ abstract class Account {
         return mobile;
     }
 
-    public String getEmail() {
+    public String getEmail(){
         return email;
     }
 
@@ -67,6 +67,8 @@ abstract class Account {
     }
 
     public Card getCard() { return this.card; }
+
+    public String getPassword() { return password; }
 
     public void setCard(Card card) { this.card = card; }
 

@@ -17,7 +17,7 @@ public class IndexRoute implements Route {
         System.out.println("Request sent to IndexRoute");
         Map<String, Object> map = new HashMap<>();
         map.put("title", "Welcome to SWEN383Store");
-
+        map.put("RegisRes", "FAILED");
         return freeMarker.render(new ModelAndView(map, VIEW_NAME)); //render(new ModelandView(
     }
 }
