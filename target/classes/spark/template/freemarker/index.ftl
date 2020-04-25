@@ -27,13 +27,6 @@
             return false;
           }
         }
-
-          if (x == "") {
-            document.getElementById("name").style.border = "thin solid red";
-            return false;
-          }
-        }
-
         </script>
     </head>
     <body>
