@@ -36,15 +36,12 @@
  <h1>SWEN383Store</h1>
     <div class="grid-container">
         <div class="item2">
-
                 <div class="row">
                     <div class="col-md-6 themed-grid-col">ITEM : 1</div>
                     <div class="col-md-6 themed-grid-col">ITEM : 2</div>
                     <div class="col-md-6 themed-grid-col">ITEM : 3</div>
                     <div class="col-md-6 themed-grid-col">ITEM : 4</div>
                 </div>
-
-
         </div>
         <div class="item3">
             <!--                    <button id="viewProfile">View Profile</button>-->
@@ -69,7 +66,8 @@
                 </button>
             </div>
             <div class="modal-body">
-<form action="/" method="POST" name="registerForm" onsubmit ="return validateForm()">
+
+  <form action="/" method="POST" name="registerForm" onsubmit ="return validateForm()">
                         <div class="modal-body">
                             <div class="form-row">
                                 <div class="form-group col-md-6">
