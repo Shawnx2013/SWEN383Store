@@ -66,8 +66,8 @@
                 </button>
             </div>
             <div class="modal-body">
-            
-<form action="/" method="POST" name="registerForm" onsubmit ="return validateForm()">
+
+  <form action="/" method="POST" name="registerForm" onsubmit ="return validateForm()">
                         <div class="modal-body">
                             <div class="form-row">
                                 <div class="form-group col-md-6">

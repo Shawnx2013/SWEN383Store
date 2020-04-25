@@ -13,6 +13,7 @@
         <script>
         function validateForm() {
           var x = document.forms["registerForm"]["name"].value;
+<<<<<<< HEAD
 
           if (x == "") {
             document.getElementById("name").style.border = "thin solid red";
@@ -27,6 +28,20 @@
             return false;
           }
         }
+=======
+          if (x == "") {
+            document.getElementById("name").style.border = "thin solid red";
+            return false;
+          }
+        }
+
+
+
+
+
+
+
+>>>>>>> ab8d4de9e93ef5c41ecaa3848987a3fa52f3c3e0
         </script>
     </head>
     <body>
@@ -65,7 +80,11 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
+<<<<<<< HEAD
                         <form action="/" method="POST" name="registerForm" onsubmit ="return validateForm()">
+=======
+                        <form action="/" method="POST" name="registerForm" onsubmit="return validateForm()">
+>>>>>>> ab8d4de9e93ef5c41ecaa3848987a3fa52f3c3e0
                         <div class="modal-body">
                             <div class="form-row">
                                <div class="form-group col-md-6">
