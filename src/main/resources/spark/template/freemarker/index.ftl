@@ -9,9 +9,25 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <title>${title}</title>
         <link rel="stylesheet" href="/css/index.css">
-        <style>
 
-        </style>
+        <script>
+        function validateForm() {
+          var x = document.forms["registerForm"]["name"].value;
+
+          if (x == "") {
+            document.getElementById("name").style.border = "thin solid red";
+            document.getElementById("email").style.border = "thin solid red";
+            document.getElementById("password").style.border = "thin solid red";
+            document.getElementById("address").style.border = "thin solid red";
+            document.getElementById("zip").style.border = "thin solid red";
+            document.getElementById("state").style.border = "thin solid red";
+            document.getElementById("city").style.border = "thin solid red";
+            document.getElementById("home").style.border = "thin solid red";
+            document.getElementById("mobile").style.border = "thin solid red";
+            return false;
+          }
+        }
+        </script>
     </head>
     <body>
         <h1>SWEN383Store</h1>
@@ -49,51 +65,51 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <form action="/" method="POST">
+                        <form action="/" method="POST" name="registerForm" onsubmit ="return validateForm()">
                         <div class="modal-body">
                             <div class="form-row">
                                <div class="form-group col-md-6">
                                    <label for="validationDefault02">Full Name</label>
-                                   <input type="text" class="form-control" name="name" placeholder="Full Name" >
+                                   <input type="text" class="form-control" id="name" name="name" placeholder="Full Name" >
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="inputEmail">Email</label>
-                                    <input type="email" class="form-control" name="email">
+                                    <input type="email" class="form-control" name="email" id = "email">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="inputPassword">Password</label>
-                                    <input type="password" class="form-control" name="password">
+                                    <input type="password" class="form-control" name="password" id = "password">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="inputAddress">Address</label>
-                                <input type="text" class="form-control" name="address" placeholder="1234 Main St">
+                                <input type="text" class="form-control" name="address" placeholder="1234 Main St" id = "address">
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="city">City</label>
-                                    <input type="text" class="form-control" name="city">
+                                    <input type="text" class="form-control" name="city" id = "city">
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="inputState">State</label>
-                                    <select name="state" class="form-control">
+                                    <select name="state" class="form-control" id = "state" >
                                         <option selected>Choose...</option>
                                         <option>NY</option>
                                     </select>
                                 </div>
                                 <div class="form-group col-md-2">
                                     <label for="zip">Zip</label>
-                                    <input type="text" class="form-control" name="inputZip">
+                                    <input type="text" class="form-control" name="inputZip" id = "zip">
                                 </div>
 
                             </div>
                             <div class="form-group">
                                 <label for="phone">Home Phone Number</label>
-                                <input type="text" class="form-control" name="home" placeholder="1234567890">
+                                <input type="text" class="form-control" name="home" placeholder="1234567890" id = "home">
                             </div>
                             <div class="form-group">
                                 <label for="phone">Mobile Phone Number</label>
-                                <input type="text" class="form-control" name="mobile" placeholder="1234567890">
+                                <input type="text" class="form-control" name="mobile" placeholder="1234567890" id = "mobile">
                             </div>
                         </div>
                         <div class="modal-footer">
