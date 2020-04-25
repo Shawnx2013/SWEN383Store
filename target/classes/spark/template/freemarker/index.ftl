@@ -11,23 +11,26 @@
         <link rel="stylesheet" href="/css/index.css">
 
         <script>
-        function validateForm() {
-          var x = document.forms["registerForm"]["name"].value;
+        function validateForm(){
+            var fields = new Array;
+            var fields = [document.getElementById('name'),document.getElementById('email'),document.getElementById('password'),
+            document.getElementById('address'),document.getElementById('city'),document.getElementById('state'),
+            document.getElementById('zip'),document.getElementById('home'),document.getElementById('mobile')];
+            var err = 0;
 
-          if (x == "") {
-            document.getElementById("name").style.border = "thin solid red";
-            document.getElementById("email").style.border = "thin solid red";
-            document.getElementById("password").style.border = "thin solid red";
-            document.getElementById("address").style.border = "thin solid red";
-            document.getElementById("zip").style.border = "thin solid red";
-            document.getElementById("state").style.border = "thin solid red";
-            document.getElementById("city").style.border = "thin solid red";
-            document.getElementById("home").style.border = "thin solid red";
-            document.getElementById("mobile").style.border = "thin solid red";
-            return false;
-          }
+            for (i=0;i<fields.length;i++){
+                if (fields[i].value == ""){
+                err++;
+                }
+            }
+
+            if (err != 0){
+                document.getElementById("inputError").innerHTML = "Please Fill Out All Of The Fields";
+                return false;
+                }
         }
         </script>
+
     </head>
     <body>
         <h1>SWEN383Store</h1>
@@ -111,6 +114,7 @@
                                 <label for="phone">Mobile Phone Number</label>
                                 <input type="text" class="form-control" name="mobile" placeholder="1234567890" id = "mobile">
                             </div>
+                            <p id="inputError"></p>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>

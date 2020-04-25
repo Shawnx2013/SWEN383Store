@@ -23,6 +23,29 @@ function myFunction() {
 }
 </script>
 
+  <script>
+        function validateForm(){
+            var fields = new Array;
+            var fields = [document.getElementById('FName'),document.getElementById('LName'),document.getElementById('CardNumber'),
+            document.getElementById('date'),document.getElementById('cvv'),document.getElementById('inputAddress'),
+            document.getElementById('inputCity'),document.getElementById('inputState'),document.getElementById('inputZip')];
+            var err = 0;
+
+            for (i=0;i<fields.length;i++){
+                if (fields[i].value == ""){
+                err++;
+                }
+            }
+
+            if (err != 0){
+                document.getElementById("inputError").innerHTML = "Please Fill Out All Of The Fields";
+                return false;
+                }
+        }
+        </script>
+
+
+
 <h1>Payment</h1>
 <div id="main">
 <div class="row mb-3">
@@ -38,44 +61,44 @@ function myFunction() {
     </div>
     <div class="col-md-4 themed-grid-col">PAYMENT
     <div>
-        <form id = "myForm" action="/Payment.html">
+       <form method="POST" name="paymentForm" onsubmit ="return validateForm()">
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="validationDefault01">First name</label>
-                    <input type="text" class="form-control" id="validationDefault01" placeholder="First Name" >
+                    <input type="text" class="form-control" id="FName" name="FName" placeholder="First Name" >
                 </div>
                 <div class="form-group col-md-6">
                     <label for="validationDefault02">Last name</label>
-                    <input type="text" class="form-control" id="validationDefault02" placeholder="Last Name" >
+                    <input type="text" class="form-control" id="LName" name="LName" placeholder="Last Name" >
                 </div>
             </div>
             <div class="form-group">
                 <label for="CardNumber">Card Number</label>
-                <input type="text" class="form-control" id="CardNumber">
+                <input type="text" class="form-control" id="CardNumber" name="CardNumber">
             </div>
 
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="date">Expiration Date</label>
-                    <input type="month" class="form-control" id="date">
+                    <input type="month" class="form-control" id="date" name="date">
                 </div>
                 <div class="form-group col-md-2">
                     <label for="cvv">CVV</label>
-                    <input type="text" class="form-control" id="cvv">
+                    <input type="text" class="form-control" id="cvv" name="cvv">
                 </div>
             </div>
             <div class="form-group">
                 <label for="inputAddress">Billing Address</label>
-                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                <input type="text" class="form-control" id="inputAddress" name="inputAddress" placeholder="1234 Main St">
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputCity">City</label>
-                    <input type="text" class="form-control" id="inputCity">
+                    <input type="text" class="form-control" id="inputCity" name="inputCity">
                 </div>
                 <div class="form-group col-md-4">
                     <label for="inputState">State</label>
-                    <select id="inputState" class="form-control">
+                    <select id="inputState" name="inputState" class="form-control">
                         <option selected>Choose...</option>
                         <option value="AL">Alabama</option>
                         <option value="AK">Alaska</option>
@@ -132,17 +155,12 @@ function myFunction() {
                 </div>
                 <div class="form-group col-md-2">
                     <label for="inputZip">Zip</label>
-                    <input type="text" class="form-control" id="inputZip">
+                    <input type="text" class="form-control" id="inputZip" name="inputZip">
                 </div>
             </div>
-            <div class="form-group">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="gridCheck">
-                    <label class="form-check-label" for="gridCheck">
-                        Check me out
-                    </label>
-                </div>
-            </div>
+
+            <p id="inputError"></p>
+
             <div class="col-sm-10">
                 <button type="button" class="btn btn-secondary">CASH</button>
                 <button type="submit" class="btn btn-primary">CONFIRM</button>
