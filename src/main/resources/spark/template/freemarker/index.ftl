@@ -12,8 +12,8 @@
 
         <script>
         function validateForm(){
-            var fields = new Array;
-            var fields = [document.getElementById('name'),document.getElementById('email'),document.getElementById('password'),
+            let fields = new Array;
+            fields = [document.getElementById('name'),document.getElementById('email'),document.getElementById('password'),
             document.getElementById('address'),document.getElementById('city'),document.getElementById('state'),
             document.getElementById('zip'),document.getElementById('home'),document.getElementById('mobile')];
             var err = 0;
@@ -24,7 +24,7 @@
                 }
             }
 
-            if (err != 0){
+            if (err !== 0){
                 document.getElementById("inputError").innerHTML = "Please Fill Out All Of The Fields";
                 return false;
                 }
@@ -36,6 +36,10 @@
         <h1>SWEN383Store</h1>
 
         <div id="login">
+            <#if RegisRes == "SUCCESS">
+                <label class="notice">Registration Successful, please log in.</label>
+            </#if>
+
             <form>
 
                 <div class="form-group">
@@ -94,7 +98,7 @@
                                     <input type="text" class="form-control" name="city" id = "city">
                                 </div>
                                 <div class="form-group col-md-4">
-                                    <label for="inputState">State</label>
+                                    <label for="state">State</label>
                                     <select name="state" class="form-control" id = "state" >
                                         <option selected>Choose...</option>
                                         <option>NY</option>
@@ -102,7 +106,7 @@
                                 </div>
                                 <div class="form-group col-md-2">
                                     <label for="zip">Zip</label>
-                                    <input type="text" class="form-control" name="inputZip" id = "zip">
+                                    <input type="text" class="form-control" name="zip" id = "zip">
                                 </div>
 
                             </div>

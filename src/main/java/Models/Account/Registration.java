@@ -64,6 +64,8 @@ public class Registration {
 
     public String getZip() {return zip;}
 
+    public String getPassword() {return password;}
+
     public void setName(String name) {
         this.name = name;
     }
