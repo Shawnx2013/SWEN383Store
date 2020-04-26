@@ -32,18 +32,22 @@ form button a{color: white;}
     word-wrap: break-word;
 }
 
-#profile{
-    border: none;
-    background: none;
-    color: black;
-    font-weight: bold;
-}
+            .btn{
+                border: none;
+                background: none;
+                color: black;
+                font-weight: bold;
+            }
 
-#profile:hover{
-    background-color: rgba(86,61,124,0.35);
-    color: white;
-}
-
+            .btn:hover{
+                background-color: rgba(86,61,124,0.35);
+                color: white;
+            }
 #inputError{
     color: red;
 }
+
+            .report{
+                width: 40%;
+                float: left;
+            }

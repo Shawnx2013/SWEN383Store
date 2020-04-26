@@ -28,5 +28,8 @@ public class Server {
         PaymentController paymentControl = new PaymentController(freeMarker);
         paymentControl.start();
 
+        ManagerHomeController manaHomeContrl = new ManagerHomeController(freeMarker);
+        manaHomeContrl.start();
+
     }
 }
