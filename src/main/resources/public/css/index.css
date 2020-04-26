@@ -44,7 +44,6 @@ form button a{color: white;}
     margin: 20px 0 15px 0;
 }
 
-
 #profile{
     border: none;
     background: none;
@@ -56,7 +55,21 @@ form button a{color: white;}
     background-color: rgba(86,61,124,0.35);
     color: white;
 }
-
+.btn{
+    border: none;
+    background: none;
+    color: black;
+    font-weight: bold;
+ }
+.btn:hover{
+    background-color: rgba(86,61,124,0.35);
+    color: white;
+}
 #inputError{
     color: red;
+}
+
+.report{
+    width: 40%;
+    float: left;
 }
