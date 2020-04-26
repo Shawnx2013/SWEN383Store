@@ -9,52 +9,45 @@
     <link rel="stylesheet" href="/css/index.css">
 
     <title>SWEN383Store</title>
-
-
            <script>
-                  function validateForm(){
-                      var fields = new Array;
-                      var fields = [document.getElementById('name'),document.getElementById('email'),document.getElementById('password'),
-                      document.getElementById('address'),document.getElementById('city'),document.getElementById('state'),
-                      document.getElementById('zip'),document.getElementById('home'),document.getElementById('mobile')];
-                      var err = 0;
-
-                      for (i=0;i<fields.length;i++){
-                          if (fields[i].value == ""){
-                          err++;
-                          }
-                      }
-
-                      if (err != 0){
-                          document.getElementById("inputError").innerHTML = "Please Fill Out All Of The Fields";
-                          return false;
-                          }
-                  }
-                  </script>
+           </script>
 
 </head>
 <body>
 
-<div id="content">
- <h1>SWEN383Store</h1>
-    <div class="grid-container">
-        <div class="item2">
-                <div class="row">
-                    <div class="col-md-6 themed-grid-col">ITEM : 1</div>
-                    <div class="col-md-6 themed-grid-col">ITEM : 2</div>
-                    <div class="col-md-6 themed-grid-col">ITEM : 3</div>
-                    <div class="col-md-6 themed-grid-col">ITEM : 4</div>
+        <div id="content">
+            <h2>Hi ${role}, Welcome to SWEN383Store</h2>
+            <div class="grid-container">
+                <div class="items">
+                    <form action="/load" method="get">
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <button name="itemType" type="submit" value="dvd" class="btn btn-secondary">Load Game CDs</button>
+                            <button name="itemType" type="submit" value="cd" class="btn btn-secondary">Load Movie Dvds</button>
+                        </div>
+                    </form>
+                    <div class="list-group">
+                        <button type="button" class="list-group-item list-group-item-action">
+                            Cras justo odio
+                        </button>
+                        <button type="button" class="list-group-item list-group-item-action">Dapibus ac facilisis in</button>
+                        <button type="button" class="list-group-item list-group-item-action">Morbi leo risus</button>
+                        <button type="button" class="list-group-item list-group-item-action">Porta ac consectetur ac</button>
+                    </div>
                 </div>
+                <div class="view">
+                    <label>Name: ${name}</label><br>
+                    <label>Email: ${email}</label><br>
+                    <label>Address: ${address}</label><br>
+                    <label>Home Phone: ${home}</label><br>
+                    <label>Mobile Phone: ${mobile}</label>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop" id="profile">Update Profile</button>
+                </div>
+                <div class="action">
+                    <button type="button" class="btn btn-primary btn-lg">Large button</button>
+                </div>
+                <div class="reservation">Manage Reservation</div>
+            </div>
         </div>
-        <div class="item3">
-            <!--                    <button id="viewProfile">View Profile</button>-->
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop" id="profile">Update Profile</button>
-        </div>
-        <div class="item4">Scan / Add</div>
-        <div class="item5">Manage Reservation</div>
-    </div>
-</div>
 
 
 
@@ -68,63 +61,10 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
-
-   <form action="/" method="POST" name="registerForm" onsubmit ="return validateForm()">
-                          <div class="modal-body">
-                              <div class="form-row">
-                                 <div class="form-group col-md-6">
-                                     <label for="validationDefault02">Full Name</label>
-                                     <input type="text" class="form-control" id="name" name="name" placeholder="Full Name" >
-                                  </div>
-                                  <div class="form-group col-md-6">
-                                      <label for="inputEmail">Email</label>
-                                      <input type="email" class="form-control" name="email" id = "email">
-                                  </div>
-                                  <div class="form-group col-md-6">
-                                      <label for="inputPassword">Password</label>
-                                      <input type="password" class="form-control" name="password" id = "password">
-                                  </div>
-                              </div>
-                              <div class="form-group">
-                                  <label for="inputAddress">Address</label>
-                                  <input type="text" class="form-control" name="address" placeholder="1234 Main St" id = "address">
-                              </div>
-                              <div class="form-row">
-                                  <div class="form-group col-md-6">
-                                      <label for="city">City</label>
-                                      <input type="text" class="form-control" name="city" id = "city">
-                                  </div>
-                                  <div class="form-group col-md-4">
-                                      <label for="inputState">State</label>
-                                      <select name="state" class="form-control" id = "state" >
-                                          <option selected>Choose...</option>
-                                          <option>NY</option>
-                                      </select>
-                                  </div>
-                                  <div class="form-group col-md-2">
-                                      <label for="zip">Zip</label>
-                                      <input type="text" class="form-control" name="inputZip" id = "zip">
-                                  </div>
-
-                              </div>
-                              <div class="form-group">
-                                  <label for="phone">Home Phone Number</label>
-                                  <input type="text" class="form-control" name="home" placeholder="1234567890" id = "home">
-                              </div>
-                              <div class="form-group">
-                                  <label for="phone">Mobile Phone Number</label>
-                                  <input type="text" class="form-control" name="mobile" placeholder="1234567890" id = "mobile">
-                              </div>
-                              <p id="inputError"></p>
-                          </div>
-                          <div class="modal-footer">
-                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                              <button type="submit" class="btn btn-primary" value="submit">Submit</button>
-                          </div>
-                          </form>
+                <div class="modal-body">
+                    <form action="/" method="POST">
+                    </form>
             </div>
-
         </div>
     </div>
 </div>

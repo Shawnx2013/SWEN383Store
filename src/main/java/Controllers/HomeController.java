@@ -10,14 +10,15 @@ import static spark.Spark.get;
 import static spark.Spark.post;
 
 public class HomeController{
-    private static final String HOME = "/home";
+    private static final String UPDATE = "/update";
+    private static final String LOAD = "/load";
     private TemplateEngine freeMarker;
     public HomeController(TemplateEngine freeMarker){
         this.freeMarker = freeMarker;
     }
 
     public void start(){
-        get(HOME, new HomeRoute(freeMarker));
-        post(HOME, new UpdateProfileRoute(freeMarker));
+        get(LOAD, new LoadItemRoute(freeMarker));
+        post(UPDATE, new UpdateProfileRoute(freeMarker));
     }
 }

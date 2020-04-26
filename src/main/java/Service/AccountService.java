@@ -34,6 +34,8 @@ public class AccountService {
 
                 int rows = cs.executeUpdate();
 
+                db.close();
+
                 return rows;
             }
             catch(SQLException sqle){

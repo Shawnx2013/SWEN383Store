@@ -6,31 +6,44 @@ h1{text-align: center; margin: 2%;}
 #register{float: right;}
 form button a{color: white;}
 
-#content{width: 50%; margin: auto; font-weight: bold;}
-
-.item2 { grid-area: itemList;}
-.item3 { grid-area: view;}
-.item4 { grid-area: scan; }
-.item5 { grid-area: manage;}
+#content{width: 80%; margin: auto;}
+#content h2{ text-align: center; margin-top: 3%; margin-bottom: 3%;}
+.items {
+    grid-area: itemList;
+    padding: 2%;
+}
+.view {
+    padding: 2%;
+    grid-area: view;
+}
+.action {
+    grid-area: action;
+    padding: 2%;
+}
+.reservation {
+    grid-area: reserv;
+    padding: 2%;
+}
 
 .grid-container {
     display: grid;
-    grid-template-rows: 100px 100px 175px 110px;
+    grid-template-columns: 2fr 1fr;
     grid-template-areas:
-        'itemList itemList itemList view view'
-        'itemList itemList itemList manage manage'
-        'scan scan scan manage manage';
-    grid-gap: 10px;
-    padding: 10px;
+        'itemList view'
+        'itemList view'
+        'itemList reserv'
+        'action reserv';
 }
 
 .grid-container > div {
     background-color: rgba(86,61,124,0.25);
-    text-align: center;
-    padding: 40px;
-    font-size: 15px;
-    word-wrap: break-word;
+    padding: 1em;
 }
+
+.item-grid{
+    margin: 20px 0 15px 0;
+}
+
 
 #profile{
     border: none;
