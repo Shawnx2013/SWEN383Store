@@ -7,7 +7,7 @@
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <title>${title}</title>
+        <title>SWEN383Store</title>
         <link rel="stylesheet" href="/css/index.css">
 
         <script>
@@ -27,7 +27,7 @@
             if (err !== 0){
                 document.getElementById("inputError").innerHTML = "Please Fill Out All Of The Fields";
                 return false;
-                }
+            }
         }
         </script>
 
@@ -36,30 +36,36 @@
         <h1>SWEN383Store</h1>
 
         <div id="login">
-            <#if RegisRes == "SUCCESS">
-                <label class="notice">Registration Successful, please log in.</label>
-            </#if>
+            <label class="notice">
+                <#if Res == "None">
+                    Welcome, please log in.
+                <#elseif Res == "SUCCESS">
+                    Registration Successful, please log in.
+                <#elseif Res == "FailedLogin">
+                    Incorrect email/password, please try again.
+                <#elseif Res == "FAILED">
+                    Registration failed...Please try again.
+                <#else>
 
-            <form>
-
+                </#if>
+            </label>
+            <form action="/signin" method="post">
                 <div class="form-group">
                     <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <input type="email" required="required" class="form-control" id="InputEmail" name="in-email" aria-describedby="emailHelp">
                     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1">
+                    <input type="password" required="required" class="form-control" id="InputPassword" name="in-password">
                 </div>
                 <div class="form-group form-check">
                     <input type="checkbox" class="form-check-input" id="exampleCheck1">
                     <label class="form-check-label" for="exampleCheck1">Remember me</label>
                 </div>
-                <button type="submit" class="btn btn-primary"><a>Sign In</a></button>
-
+                <button type="submit" class="btn btn-primary" value="submit"><a>Sign In</a></button>
                 <!-- Button trigger modal -->
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop" id="register">Register</button>
-
             </form>
 
             <!-- Modal -->

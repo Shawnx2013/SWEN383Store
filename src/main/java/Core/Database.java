@@ -59,37 +59,4 @@ public class Database {
         }
 
     }
-
-    public enum ExecuteType{
-        QUERY, UPDATE, STANDARD;
-    }
-
-
-/*    public ArrayList<String> callProcedure(String procedure, String[] input, ExecuteType procedureType){
-        ArrayList<String> res = new ArrayList<String>();
-        CallableStatement cs;
-        try{
-            cs = conn.prepareCall(procedure);
-            int inputSize = input.length;
-            for(int i=0; i<inputSize; i++){
-                cs.setString(i+1, input[i]);
-            }
-            if(procedureType == ExecuteType.STANDARD){
-                cs.execute();
-            }
-            else if(procedureType == ExecuteType.QUERY){
-                ResultSet rs = cs.executeQuery();
-                return rs;
-            }
-            else if(procedureType == ExecuteType.UPDATE){
-                int rows = cs.executeUpdate();
-                System.out.println("Rows affected: " + rows);
-            }
-        }
-        catch(SQLException sqle){
-            sqle.printStackTrace();
-        }
-        return res;*/
-    //}
-
 }

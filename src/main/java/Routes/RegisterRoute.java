@@ -26,11 +26,12 @@ public class RegisterRoute implements Route {
         res = service.addCustomer();
 
         Map<String, Object> map = new HashMap<>();
-        map.put("title", "Welcome to SWEN383Store");
-        map.put("RegisRes", "FAILED");
+
         if(res > 0){
-            map.put("RegisRes", "SUCCESS");
+            map.put("Res", "SUCCESS");
         }
+        else
+            map.put("Res", "FAILED");
 
         return freeMarker.render(new ModelAndView(map, VIEW_NAME));
     }
