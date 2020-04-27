@@ -6,8 +6,11 @@ import spark.*;
 import util.ParseRequestBody;
 import util.Path.*;
 import Service.*;
+import Models.Item.*;
+
 import java.util.HashMap;
 import java.util.Map;
+import java.util.ArrayList;
 
 import static spark.Spark.*;
 
@@ -21,7 +24,7 @@ public class HomeController{
     public void start(){
         //get(ROUTE.HOME, homeRoute);
         post(ROUTE.HOME, homeRoute);
-        //get(LOAD, new LoadItemRoute(freeMarker));
+        get(ROUTE.LOAD, loadItemRoute);
         //post(UPDATE, new UpdateProfileRoute(freeMarker));
     }
 
@@ -67,4 +70,23 @@ public class HomeController{
         return freeMarker.render(new ModelAndView(map, Template.INDEX));
     };
 
+    public static Route loadItemRoute = (Request request, Response response) ->{
+        System.out.println("Request sent to Load Item Route");
+        System.out.println("Type requested: " + request.queryParams("itemType"));
+        String type = request.queryParams("itemType");
+        ItemService itemService = new ItemService();
+        ArrayList list = (ArrayList)itemService.getItemByType(type);
+        for(int i=0; i<list.size(); i++){
+            if(type.equals("dvd")){
+                Movie movie = (Movie) list.get(i);
+                System.out.println(movie.getName() + ": " + movie.getAvailableAmt());
+            }
+            if(type.equals("cd")){
+                Game game = (Game) list.get(i);
+                System.out.println(game.getName() + ": " + game.getAvailableAmt());
+            }
+        }
+        Map<String, Object> map = new HashMap<>();
+        return freeMarker.render(new ModelAndView(map, "items.ftl"));
+    };
 }

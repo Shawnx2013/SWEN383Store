@@ -3,8 +3,6 @@ package Service;
 import Models.Account.Customer;
 import Models.Account.Registration;
 import Core.Database;
-import com.sun.source.tree.ParenthesizedTree;
-import util.ParseRequestBody;
 
 import java.sql.*;
 
@@ -16,7 +14,6 @@ public class AccountService {
     }
 
     public int addCustomer(Registration registration){
-        boolean bool = true;
         Customer cust = new Customer(registration.getEmail(), registration.getPassword(), registration.getName(),
                             registration.getAddress(), registration.getCity(), registration.getState(), registration.getZip(),
                             registration.getHomePhone(), registration.getMobilePhone());

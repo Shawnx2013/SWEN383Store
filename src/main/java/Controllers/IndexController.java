@@ -46,7 +46,7 @@ public class IndexController{
         else
             map.put("Res", "FAILED");
 
-        return freeMarker.render(new ModelAndView(map, Template.HOME));
+        return freeMarker.render(new ModelAndView(map, Template.INDEX));
     };
 }
 
