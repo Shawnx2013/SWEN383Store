@@ -21,7 +21,7 @@ public class HomeController{
     public void start(){
         //get(ROUTE.HOME, homeRoute);
         post(ROUTE.HOME, homeRoute);
-        //get(LOAD, new LoadItemRoute(freeMarker));
+        get(ROUTE.LOAD, loadItemRoute);
         //post(UPDATE, new UpdateProfileRoute(freeMarker));
     }
 
@@ -67,4 +67,13 @@ public class HomeController{
         return freeMarker.render(new ModelAndView(map, Template.INDEX));
     };
 
+    public static Route loadItemRoute = (Request request, Response response) ->{
+        System.out.println("Request sent to Load Item Route");
+        System.out.println("Type requested: " + request.queryParams("itemType"));
+
+        ItemService itemService = new ItemService();
+
+        Map<String, Object> map = new HashMap<>();
+        return freeMarker.render(new ModelAndView(map, Template.HOME));
+    };
 }
