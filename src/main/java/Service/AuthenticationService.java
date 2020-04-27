@@ -30,7 +30,7 @@ public class AuthenticationService {
                 String out_password = cs.getNString(4);
 
                 System.out.println("Calling retrieve_email_password: " + out_email + ", " + out_password);
-
+                db.close();
                 if(out_email != null)
                     return true;
                 else

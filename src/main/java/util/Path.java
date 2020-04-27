@@ -9,6 +9,7 @@ public class Path {
     public static class Template{
         public static final String INDEX = "index.ftl";
         public static final String HOME = "home.ftl";
+
         public static final String MANAGE = "managerHome.ftl";
         public static final String PAYMENT = "payment.ftl";
     }
