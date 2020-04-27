@@ -7,9 +7,13 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/index.css">
+    <script
+        src="https://code.jquery.com/jquery-3.5.0.min.js"
+        integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ="
+        crossorigin="anonymous"></script>
 
     <title>SWEN383Store</title>
-           <script>
+           <script src="/js/homeLoadItem.js">
            </script>
 
 </head>
@@ -19,11 +23,12 @@
             <h2>Hi ${role}, Welcome to SWEN383Store</h2>
             <div class="grid-container">
                 <div class="items">
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <button name="itemType" onclick="loadItem('cd')" class="btn btn-secondary">Load Game CDs</button>
+                        <button name="itemType" onclick="loadItem('dvd')" class="btn btn-secondary">Load Movie Dvds</button>
+                    </div>
                     <form action="/load" method="get">
-                        <div class="btn-group" role="group" aria-label="Basic example">
-                            <button name="itemType" type="submit" value="dvd" class="btn btn-secondary">Load Game CDs</button>
-                            <button name="itemType" type="submit" value="cd" class="btn btn-secondary">Load Movie Dvds</button>
-                        </div>
+                        <button type="submit" value="dvd" name="itemType" class="btn btn-primary">test for dvd</button>
                     </form>
                     <#include "/items.ftl">
                 </div>

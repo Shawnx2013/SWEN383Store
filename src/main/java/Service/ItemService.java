@@ -30,10 +30,10 @@ public class ItemService {
         return null;
     }
 
-    public ArrayList<Movie> getMovie(CallableStatement cs) throws SQLException {
+    public List<Movie> getMovie(CallableStatement cs) throws SQLException {
         cs.setString(1,"MovieDVD");
         ResultSet rs = cs.executeQuery();
-        ArrayList<Movie> list = new ArrayList<Movie>();
+        List<Movie> list = new ArrayList<Movie>();
         while(rs.next()){
             String name = rs.getString("item_name");
             int amt = rs.getInt("item_amt");
@@ -42,10 +42,10 @@ public class ItemService {
         return list;
     }
 
-    public ArrayList<Game> getGame(CallableStatement cs) throws SQLException {
+    public List<Game> getGame(CallableStatement cs) throws SQLException {
         cs.setString(1,"GameCD");
         ResultSet rs = cs.executeQuery();
-        ArrayList<Game> list = new ArrayList<Game>();
+        List<Game> list = new ArrayList<Game>();
         while(rs.next()){
             String name = rs.getString("item_name");
             int amt = rs.getInt("item_amt");
