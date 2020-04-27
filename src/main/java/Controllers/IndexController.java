@@ -1,9 +1,12 @@
 package Controllers;
 
-
 import spark.*;
 
-import Routes.*;
+import Service.*;
+import Models.Account.*;
+import util.ParseRequestBody;
+import util.Path.*;
+import java.util.*;
 
 import static spark.Spark.*;
 
@@ -12,17 +15,39 @@ public class IndexController{
         this.freeMarker = freeMarker;
     }
 
-    public static final String INDEX = "/";
-    public static final String SIGNIN = "/signin";
-
-    private final TemplateEngine freeMarker;
+    private static TemplateEngine freeMarker = null;
 
     public void start(){
-        get(INDEX, new IndexRoute(freeMarker));
-        post(INDEX, new RegisterRoute(freeMarker));
-        post(SIGNIN, new SignInRoute(freeMarker));
+        get(ROUTE.INDEX, serveIndex);
+        post(ROUTE.INDEX, register);
     }
 
+    public static Route serveIndex = (Request request, Response response) -> {
+        System.out.println("Request sent to IndexRoute");
+        Map<String, Object> map = new HashMap<>();
+        map.put("Res", "None");
+        return freeMarker.render(new ModelAndView(map, Template.INDEX));
+    };
+
+    public static Route register = (Request request, Response response) -> {
+        System.out.println("Request received at RegisterRoute");
+        //System.out.println(request.body());
+        int res = -1;
+        Registration regis = ParseRequestBody.convert(request.body(), Registration.class);
+        System.out.println(regis);
+        AccountService service = new AccountService();
+        res = service.addCustomer(regis);
+
+        Map<String, Object> map = new HashMap<>();
+
+        if(res > 0){
+            map.put("Res", "SUCCESS");
+        }
+        else
+            map.put("Res", "FAILED");
+
+        return freeMarker.render(new ModelAndView(map, Template.HOME));
+    };
 }
 
 

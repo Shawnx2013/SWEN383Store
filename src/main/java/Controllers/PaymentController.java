@@ -1,12 +1,7 @@
 package Controllers;
 
-import Routes.IndexRoute;
 import Routes.PaymentRoute;
-import Routes.RegisterRoute;
 import spark.*;
-
-import java.util.HashMap;
-import java.util.Map;
 
 import static spark.Spark.get;
 import static spark.Spark.post;

@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class managerHomeRoute implements Route{
-    private static final String VIEW_NAME= "managerHome.html";
+    private static final String VIEW_NAME= "managerHome.ftl";
     private TemplateEngine freeMarker;
     public managerHomeRoute(TemplateEngine freeMarker){
         this.freeMarker = freeMarker;

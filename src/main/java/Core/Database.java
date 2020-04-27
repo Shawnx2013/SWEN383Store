@@ -9,7 +9,7 @@ public class Database {
     private final String USER = "root";
     private final String SERVER = "localhost:3306";
 
-    private String password = "Sorry.30";
+    private String password = "79484shao";
 
     public Database(){
         /* URL example
