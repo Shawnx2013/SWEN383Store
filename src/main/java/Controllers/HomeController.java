@@ -1,8 +1,12 @@
 package Controllers;
 
 import Routes.*;
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
 import spark.*;
 
+import util.JsonTransformer;
 import util.ParseRequestBody;
 import util.Path.*;
 import Service.*;
@@ -43,7 +47,6 @@ public class HomeController{
             AuthenticationService authenticationService = new AuthenticationService(email, password);
             boolean hasUser = authenticationService.login();
             if(hasUser){
-
                 AccountService accountService = new AccountService();
                 String[] result = accountService.getAccount(email, password);
                 if(result[6].equals("Customer")){
@@ -72,21 +75,30 @@ public class HomeController{
 
     public static Route loadItemRoute = (Request request, Response response) ->{
         System.out.println("Request sent to Load Item Route");
+        System.out.println("Request method: " + request.requestMethod());
         System.out.println("Type requested: " + request.queryParams("itemType"));
         String type = request.queryParams("itemType");
         ItemService itemService = new ItemService();
+        response.type("application/json");
         ArrayList list = (ArrayList)itemService.getItemByType(type);
-        for(int i=0; i<list.size(); i++){
-            if(type.equals("dvd")){
-                Movie movie = (Movie) list.get(i);
-                System.out.println(movie.getName() + ": " + movie.getAvailableAmt());
+        if(list.size()>0) {
+            if (type.equals("dvd")) {
+                for (int i = 0; i < list.size(); i++) {
+                    Movie movie = (Movie) list.get(i);
+                    System.out.println(movie.getName() + ": " + movie.getAvailableAmt());
+                }
             }
-            if(type.equals("cd")){
-                Game game = (Game) list.get(i);
-                System.out.println(game.getName() + ": " + game.getAvailableAmt());
+            if (type.equals("cd")) {
+                for (int i = 0; i < list.size(); i++) {
+                    Game game = (Game) list.get(i);
+                    System.out.println(game.getName() + ": " + game.getAvailableAmt());
+                }
             }
+            JsonArray json = new Gson().toJsonTree(list).getAsJsonArray();
+            return json;
         }
-        Map<String, Object> map = new HashMap<>();
-        return freeMarker.render(new ModelAndView(map, "items.ftl"));
+        else {
+            return "{\"message\":\"Error occurred on loadItemRoute\"}";
+        }
     };
 }
