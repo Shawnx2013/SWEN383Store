@@ -55,16 +55,7 @@ form button a{color: white;}
     background-color: rgba(86,61,124,0.35);
     color: white;
 }
-.btn{
-    border: none;
-    background: none;
-    color: black;
-    font-weight: bold;
- }
-.btn:hover{
-    background-color: rgba(86,61,124,0.35);
-    color: white;
-}
+
 #inputError{
     color: red;
 }

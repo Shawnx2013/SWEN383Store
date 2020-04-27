@@ -8,8 +8,6 @@ import static spark.Spark.get;
 import static spark.Spark.staticFileLocation;
 
 public class Server {
-    public static final String HOME = "/";
-    public static final String PAYMENT= "/payment";
 
     private final TemplateEngine freeMarker;
 

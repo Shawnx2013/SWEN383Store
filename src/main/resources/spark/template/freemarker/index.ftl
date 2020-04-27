@@ -49,7 +49,7 @@
 
                 </#if>
             </label>
-            <form action="/signin" method="post">
+            <form action="/home" method="post">
                 <div class="form-group">
                     <label for="exampleInputEmail1">Email address</label>
                     <input type="email" required="required" class="form-control" id="InputEmail" name="in-email" aria-describedby="emailHelp">

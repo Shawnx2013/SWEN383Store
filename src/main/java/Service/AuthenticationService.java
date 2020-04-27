@@ -16,35 +16,25 @@ public class AuthenticationService {
         this.password = password;
     }
 
-    public String[] login(){
+    public boolean login(){
         if(db.connect()){
             try{
-                CallableStatement cs = db.conn.prepareCall("{CALL RETRIEVE_ACCOUNT_BY_LOGIN(?,?,?,?,?,?,?,?,?)}");
+                CallableStatement cs = db.conn.prepareCall("{CALL RETRIEVE_EMAIL_PASSWORD(?,?,?,?)}");
                 cs.setString(1,email);
                 cs.setString(2,password);
                 cs.registerOutParameter(3, Types.VARCHAR);
                 cs.registerOutParameter(4, Types.VARCHAR);
-                cs.registerOutParameter(5, Types.VARCHAR);
-                cs.registerOutParameter(6, Types.VARCHAR);
-                cs.registerOutParameter(7, Types.VARCHAR);
-                cs.registerOutParameter(8, Types.VARCHAR);
-                cs.registerOutParameter(9, Types.VARCHAR);
 
                 ResultSet rs = cs.executeQuery();
                 String out_email = cs.getString(3);
                 String out_password = cs.getNString(4);
-                String name = cs.getString(5);
-                String address = cs.getString(6);
-                String home = cs.getString(7);
-                String mobile = cs.getString(8);
-                String role = cs.getString(9);
 
-                System.out.println("Calling retrieve_account_by_login: " + out_email + ", " + out_password + ", " + name + ", " +
-                                    address + ", " + home + ", " + mobile + ", " + role);
+                System.out.println("Calling retrieve_email_password: " + out_email + ", " + out_password);
+
                 if(out_email != null)
-                    return new String[]{out_email, out_password, name, address, home, mobile, role};
+                    return true;
                 else
-                    return new String[]{};
+                    return false;
             }
             catch(SQLException sqle){
                 sqle.printStackTrace();
@@ -53,6 +43,6 @@ public class AuthenticationService {
                 e.printStackTrace();
             }
         }
-        return null;
+        return false;
     }
 }
